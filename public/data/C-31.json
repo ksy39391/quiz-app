@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "バランススコアカード(BSC)の4つの視点のうち、顧客の視点に関係するものはどれか。",
+      "choices": [
+        "CSF",
+        "KPI",
+        "顧客ロイヤルティ",
+        "営業プロセス"
+      ],
+      "correct_answer": "顧客ロイヤルティ",
+      "explanation": "顧客ロイヤルティとは、顧客が企業に抱く愛着のことであり、顧客の視点に関係する。"
+    },
+    {
+      "id": 2,
+      "question": "CSF(Critical Success Factors)とは何か。",
+      "choices": [
+        "戦略目標の定量的指標",
+        "戦略目標の財務的指標",
+        "戦略目標を達成するための定性的要因",
+        "顧客ニーズを満たすための要因"
+      ],
+      "correct_answer": "戦略目標を達成するための定性的要因",
+      "explanation": "CSFとは、戦略目標を達成するために必要となる定性的な要因のことである。"
+    },
+    {
+      "id": 3,
+      "question": "マーケティングの4Pのうち、製品・サービスの品質や機能、デザイン、ブランドに関係するのはどれか。",
+      "choices": [
+        "Price",
+        "Place",
+        "Promotion",
+        "Product"
+      ],
+      "correct_answer": "Product",
+      "explanation": "Productは製品・サービスの品質や機能、デザイン、ブランドに関係する。"
+    },
+    {
+      "id": 4,
+      "question": "マーケティングの3Cのうち、顧客が製品・サービスから得られる価値に関係するものはどれか。",
+      "choices": [
+        "Cost",
+        "Convenience",
+        "Communication",
+        "Customer Value"
+      ],
+      "correct_answer": "Customer Value",
+      "explanation": "Customer Valueは、顧客が製品・サービスから得られる価値のことである。"
+    },
+    {
+      "id": 5,
+      "question": "次のうち、企業が経営資源(ヒト、モノ、カネ、チエ)を総合的に管理する手法は何か。",
+      "choices": [
+        "CRM",
+        "SFA",
+        "SCM",
+        "ERP"
+      ],
+      "correct_answer": "ERP",
+      "explanation": "ERPとは、Enterprise Resource Planningの略で、企業資源を総合的に管理する手法のことである。"
+    },
+    {
+      "id": 6,
+      "question": "コストプラス価格決定法とは、どのような価格設定方法か。",
+      "choices": [
+        "顧客が支払う金銭的・非金銭的コストに基づく価格設定",
+        "製造原価にマージンを加えた価格設定",
+        "顧客ニーズに基づく価格設定",
+        "競合他社の価格に基づく価格設定"
+      ],
+      "correct_answer": "製造原価にマージンを加えた価格設定",
+      "explanation": "コストプラス価格決定法とは、製造原価にマージン(売上総利益)を加えて価格を設定する方法である。"
+    },
+    {
+      "id": 7,
+      "question": "次のうち、顧客情報や販売履歴を一元管理し、顧客と良好な関係を築いて長期的な利益を得ることを目的とする手法は何か。",
+      "choices": [
+        "SFA",
+        "ERP",
+        "SCM",
+        "CRM"
+      ],
+      "correct_answer": "CRM",
+      "explanation": "CRM(Customer Relationship Management)は、顧客情報や販売履歴を一元管理し、顧客と良好な関係を築いて長期的な利益を得ることを目的とする手法である。"
+    },
+    {
+      "id": 8,
+      "question": "ナレッジマネジメントとは、どのような取り組みか。",
+      "choices": [
+        "製品の品質管理",
+        "原価管理",
+        "個人の知識や情報を組織全体で共有する",
+        "顧客ニーズの把握"
+      ],
+      "correct_answer": "個人の知識や情報を組織全体で共有する",
+      "explanation": "ナレッジマネジメントとは、個人の知識や情報を組織全体で共有することである。"
+    },
+    {
+      "id": 9,
+      "question": "次のうち、調達・生産・販売などのプロセス全体を最適化する手法は何か。",
+      "choices": [
+        "CRM",
+        "ERP",
+        "SCM",
+        "SFA"
+      ],
+      "correct_answer": "SCM",
+      "explanation": "SCM(Supply Chain Management)は、調達・生産・販売などのプロセス全体を最適化する手法である。"
+    },
+    {
+      "id": 10,
+      "question": "次のうち、暗黙知に該当するものはどれか。",
+      "choices": [
+        "マニュアル",
+        "ノウハウ",
+        "手順書",
+        "規則"
+      ],
+      "correct_answer": "ノウハウ",
+      "explanation": "暗黙知とは、非明文化された知識のことで、ノウハウがこれに該当する。一方、マニュアル、手順書、規則は形式知(明文化された知識)に該当する。"
+    }
+  ]
+}

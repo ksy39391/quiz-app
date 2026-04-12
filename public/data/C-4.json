@@ -1,0 +1,120 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "DRAMはリフレッシュが不要な半導体メモリである。",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correct_answer": "False",
+      "explanation": "DRAMはリフレッシュが必要な半導体メモリである。一方、SRAMはリフレッシュが不要な半導体メモリである。"
+    },
+    {
+      "id": 2,
+      "question": "フラッシュメモリにおいて、ページとは消去の単位を指す。",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correct_answer": "False",
+      "explanation": "フラッシュメモリにおいて、ページは読み書きの単位であり、ブロックが消去の単位である。"
+    },
+    {
+      "id": 3,
+      "question": "次のうち、ROMの種類ではないものはどれか。",
+      "choices": [
+        "マスクROM",
+        "PROM",
+        "SDRAM",
+        "EEPROM"
+      ],
+      "correct_answer": "SDRAM",
+      "explanation": "SDRAMはDRAMの一種であり、ROMの種類ではない。マスクROM、PROM、EEPROMはいずれもROMの種類である。"
+    },
+    {
+      "id": 4,
+      "question": "メモリセルとは何を指すか。",
+      "choices": [
+        "0,1の情報を格納する最小単位",
+        "メモリの種類の一つ",
+        "フラッシュメモリの読み書き単位",
+        "電子回路の一種"
+      ],
+      "correct_answer": "0,1の情報を格納する最小単位",
+      "explanation": "メモリセルとは、0または1の情報を格納する最小単位のことを指す。"
+    },
+    {
+      "id": 5,
+      "question": "フリップフロップ回路は何を実現する回路か。",
+      "choices": [
+        "1ビットの情報を保存",
+        "複数ビットの情報を保存",
+        "演算を行う",
+        "制御を行う"
+      ],
+      "correct_answer": "1ビットの情報を保存",
+      "explanation": "フリップフロップ回路は1ビットの情報を保存できる順序回路である。"
+    },
+    {
+      "id": 6,
+      "question": "アノードコモンとはどのような接続方式を指すか。",
+      "choices": [
+        "正極（アノード）が共通になっている",
+        "負極（カソード）が共通になっている",
+        "入力端子が共通になっている",
+        "出力端子が共通になっている"
+      ],
+      "correct_answer": "正極（アノード）が共通になっている",
+      "explanation": "アノードコモンとは、正極（アノード）が共通になっている接続方式のことを指す。"
+    },
+    {
+      "id": 7,
+      "question": "次のうち、順序回路の説明として正しいものはどれか。",
+      "choices": [
+        "現在の入力のみで出力が決まる回路",
+        "過去の入力によって出力が決まる回路",
+        "演算を行う回路",
+        "制御を行う回路"
+      ],
+      "correct_answer": "過去の入力によって出力が決まる回路",
+      "explanation": "順序回路とは、現在の入力だけでなく、過去の入力によって出力が決まる回路のことを指す。"
+    },
+    {
+      "id": 8,
+      "question": "EEPROMとは何の略称か。",
+      "choices": [
+        "Electrically Erasable Programmable Read Only Memory",
+        "Electrically Erasable Programmable Random Access Memory",
+        "Enhanced Erasable Programmable Read Only Memory",
+        "Enhanced Erasable Programmable Random Access Memory"
+      ],
+      "correct_answer": "Electrically Erasable Programmable Read Only Memory",
+      "explanation": "EEPROMは、Electrically Erasable Programmable Read Only Memoryの略称である。"
+    },
+    {
+      "id": 9,
+      "question": "次のうち、DRAMの種類ではないものはどれか。",
+      "choices": [
+        "SDRAM",
+        "DDR SDRAM",
+        "RDRAM",
+        "SRAM"
+      ],
+      "correct_answer": "SRAM",
+      "explanation": "SDRAM、DDR SDRAM、RDRAMはいずれもDRAMの種類である。一方、SRAMはDRAMではなく、別の半導体メモリの種類である。"
+    },
+    {
+      "id": 10,
+      "question": "フラッシュメモリは何の一種か。",
+      "choices": [
+        "DRAM",
+        "SRAM",
+        "EEPROM",
+        "SDRAM"
+      ],
+      "correct_answer": "EEPROM",
+      "explanation": "フラッシュメモリはEEPROM（Electrically Erasable Programmable Read Only Memory）の一種である。"
+    }
+  ]
+}

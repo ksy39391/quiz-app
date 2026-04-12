@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "スマートグリッドにおいて、家電やスマートメーターの制御・可視化を行うシステムは何か。",
+      "choices": [
+        "HEMS",
+        "POS",
+        "MRP",
+        "CAD"
+      ],
+      "correct_answer": "HEMS",
+      "explanation": "HEMSはHome Energy Management Systemの略で、家庭における電力の制御や可視化を行うシステムです。"
+    },
+    {
+      "id": 2,
+      "question": "次の中で、必要なものを必要な時必要な分だけ作る生産方式は何か。",
+      "choices": [
+        "ライン生産方式",
+        "セル生産方式",
+        "かんばん方式",
+        "MRP"
+      ],
+      "correct_answer": "かんばん方式",
+      "explanation": "かんばん方式は、JIT(Just In Time)生産方式とも呼ばれ、必要なものを必要な時必要な分だけ作る生産方式です。"
+    },
+    {
+      "id": 3,
+      "question": "製品の生産計画に合わせて必要な資材の手配を行う手法は何か。",
+      "choices": [
+        "CAD",
+        "CAM",
+        "MRP",
+        "EDI"
+      ],
+      "correct_answer": "MRP",
+      "explanation": "MRP(Material Requirements Planning)は、製品の生産計画に合わせて必要な資材(材料・部品・中間製品)の所要量を計算し、手配を行う手法です。"
+    },
+    {
+      "id": 4,
+      "question": "次の中で、コンピュータ支援設計を意味する用語は何か。",
+      "choices": [
+        "MRP",
+        "CAM",
+        "CAD",
+        "EDI"
+      ],
+      "correct_answer": "CAD",
+      "explanation": "CAD(Computer Aided Design)は、コンピュータを利用した設計支援システムのことです。"
+    },
+    {
+      "id": 5,
+      "question": "消費者がインターネットを通じて自らの情報を発信するメディアの総称は何か。",
+      "choices": [
+        "CGM",
+        "マスメディア",
+        "ソーシャルメディア",
+        "EDI"
+      ],
+      "correct_answer": "CGM",
+      "explanation": "CGM(Consumer Generated Media)は、一般消費者がインターネットを通じて自ら情報を発信するメディアの総称です。"
+    },
+    {
+      "id": 6,
+      "question": "次の中で、インターネットに接続していない閉鎖的なネットワークを指す用語は何か。",
+      "choices": [
+        "LPWA",
+        "エッジコンピューティング",
+        "閉鎖網",
+        "IoT"
+      ],
+      "correct_answer": "閉鎖網",
+      "explanation": "閉鎖網は、インターネットなどの外部ネットワークと接続されていない独立したネットワークのことで、セキュリティが高いのが特徴です。"
+    },
+    {
+      "id": 7,
+      "question": "電子データ交換の略称は何か。",
+      "choices": [
+        "EDI",
+        "MRP",
+        "CAM",
+        "CGM"
+      ],
+      "correct_answer": "EDI",
+      "explanation": "EDI(Electronic Data Interchange)は、商取引のためのデータをコンピュータ間で規約に基づいて交換することを指します。"
+    },
+    {
+      "id": 8,
+      "question": "次の中で、個人や企業がモノやサービスを相互に貸し借りする経済活動を指す用語は何か。",
+      "choices": [
+        "シェアリングエコノミー",
+        "CGM",
+        "O to O",
+        "G to B"
+      ],
+      "correct_answer": "シェアリングエコノミー",
+      "explanation": "シェアリングエコノミーは、個人や企業が遊休資産(モノやサービス)を相互に貸し借りする経済活動のことを指します。"
+    },
+    {
+      "id": 9,
+      "question": "次の中で、製品の開発プロセスを同時並行で行う手法は何か。",
+      "choices": [
+        "ライン生産方式",
+        "セル生産方式",
+        "かんばん方式",
+        "コンカレントエンジニアリング"
+      ],
+      "correct_answer": "コンカレントエンジニアリング",
+      "explanation": "コンカレントエンジニアリングは、製品の開発プロセスを同時並行で行うことで、開発期間の短縮や品質の向上を図る手法です。"
+    },
+    {
+      "id": 10,
+      "question": "次の中で、行政機関と企業の取引を指す用語は何か。",
+      "choices": [
+        "C to C",
+        "O to O",
+        "G to B",
+        "B to C"
+      ],
+      "correct_answer": "G to B",
+      "explanation": "G to B(Government to Business)は、行政機関(政府)と企業の間の取引を指します。"
+    }
+  ]
+}

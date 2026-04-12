@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following expresses the time when something happens?",
+      "choices": [
+        "at five o'clock",
+        "on Christmas Day",
+        "on Fridays",
+        "in the winter"
+      ],
+      "correct_answer": "at five o'clock",
+      "explanation": "The image shows that 'at five o'clock' is used to express the time of day when something happens."
+    },
+    {
+      "id": 2,
+      "question": "How do we say 'I don't work on Saturday evenings' in English?",
+      "choices": [
+        "I don't work on Saturday evenings.",
+        "I don't work at Saturday evenings.",
+        "I don't work in Saturday evenings.",
+        "I don't work on Saturdays evenings."
+      ],
+      "correct_answer": "I don't work on Saturday evenings.",
+      "explanation": "According to the image, we use 'on' with days or parts of the day to talk about recurring events."
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is NOT an example of a time expression used in the image?",
+      "choices": [
+        "at midnight",
+        "in the 18th century",
+        "on my birthday",
+        "on 16 May 2009"
+      ],
+      "correct_answer": "in the 18th century",
+      "explanation": "The image does not list 'in the 18th century' as an example of a time expression."
+    },
+    {
+      "id": 4,
+      "question": "Which of the following expressions is used to talk about the present moment?",
+      "choices": [
+        "at the weekend",
+        "at Christmas",
+        "at present",
+        "in the past"
+      ],
+      "correct_answer": "at present",
+      "explanation": "The image shows that 'at present' is used to refer to the present moment or current time."
+    },
+    {
+      "id": 5,
+      "question": "How do we express the idea of 'a few minutes from now' in English?",
+      "choices": [
+        "in a few minutes",
+        "for a few minutes",
+        "at a few minutes",
+        "on a few minutes"
+      ],
+      "correct_answer": "in a few minutes",
+      "explanation": "According to the image, we use 'in' to talk about time periods or durations, such as 'in a few minutes'."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is NOT an example of a time expression used with 'in' according to the image?",
+      "choices": [
+        "in the morning",
+        "in six months",
+        "in a week's time",
+        "in a moment"
+      ],
+      "correct_answer": "in a moment",
+      "explanation": "The image does not list 'in a moment' as an example of a time expression used with 'in'."
+    },
+    {
+      "id": 7,
+      "question": "How do we express the idea of 'It took me four weeks to learn' in English?",
+      "choices": [
+        "I learned in four weeks.",
+        "I learned for four weeks.",
+        "I learned at four weeks.",
+        "I learned on four weeks."
+      ],
+      "correct_answer": "I learned in four weeks.",
+      "explanation": "The image shows that we use 'in' to say how long it takes to do something, such as 'I learned in four weeks'."
+    },
+    {
+      "id": 8,
+      "question": "Which of the following expressions is used to talk about a past event that happened at a specific time?",
+      "choices": [
+        "They arrived last March.",
+        "They arrived on Fridays.",
+        "They arrived in October.",
+        "They arrived at five o'clock."
+      ],
+      "correct_answer": "They arrived last March.",
+      "explanation": "The image shows that we do not use 'at/on/in' before 'last/next/this/every' to refer to a specific time in the past."
+    },
+    {
+      "id": 9,
+      "question": "How do we express the idea of 'I arrived at the same time as Kate' in English?",
+      "choices": [
+        "Kate and I arrived at the same time.",
+        "Kate and I arrived in the same time.",
+        "Kate and I arrived on the same time.",
+        "Kate and I arrived by the same time."
+      ],
+      "correct_answer": "Kate and I arrived at the same time.",
+      "explanation": "The image shows that we use 'at' in expressions like 'at the same time' to talk about simultaneous events."
+    },
+    {
+      "id": 10,
+      "question": "Which of the following expressions is used to talk about recurring events or days?",
+      "choices": [
+        "on Fridays",
+        "at Fridays",
+        "in Fridays",
+        "by Fridays"
+      ],
+      "correct_answer": "on Fridays",
+      "explanation": "The image shows that we use 'on' with days of the week or specific dates to talk about recurring events or days."
+    }
+  ]
+}

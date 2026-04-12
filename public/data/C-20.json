@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "共通鍵暗号方式の特徴として正しいものはどれですか?",
+      "choices": [
+        "暗号化と復号に異なる鍵を使う",
+        "鍵の配送に問題がある",
+        "処理が高速である",
+        "処理が遅い"
+      ],
+      "correct_answer": "処理が高速である",
+      "explanation": "共通鍵暗号方式は、暗号化と復号に同じ鍵を使うため処理が高速である一方で、鍵の配送が問題となります。"
+    },
+    {
+      "id": 2,
+      "question": "公開鍵暗号方式の特徴として正しいものはどれですか?",
+      "choices": [
+        "処理が高速である",
+        "鍵の配送に問題がある",
+        "暗号化と復号に同じ鍵を使う",
+        "暗号化には公開鍵、復号には秘密鍵を使う"
+      ],
+      "correct_answer": "暗号化には公開鍵、復号には秘密鍵を使う",
+      "explanation": "公開鍵暗号方式は、暗号化に公開鍵、復号に秘密鍵を使うため、鍵の配送問題が解決されますが、処理が遅いデメリットがあります。"
+    },
+    {
+      "id": 3,
+      "question": "ハイブリッド暗号方式とは何ですか?",
+      "choices": [
+        "公開鍵暗号方式と共通鍵暗号方式を組み合わせた方式",
+        "公開鍵暗号方式のみを使う方式",
+        "共通鍵暗号方式のみを使う方式",
+        "新しい暗号アルゴリズムを使う方式"
+      ],
+      "correct_answer": "公開鍵暗号方式と共通鍵暗号方式を組み合わせた方式",
+      "explanation": "ハイブリッド暗号方式は、公開鍵暗号方式で共通鍵を配送し、共通鍵で実際の平文を暗号化する方式です。両方の長所を生かしています。"
+    },
+    {
+      "id": 4,
+      "question": "デジタル署名の目的として正しいものはどれですか?",
+      "choices": [
+        "メッセージの機密性を確保する",
+        "メッセージの完全性と認証性を確保する",
+        "メッセージの可用性を確保する",
+        "メッセージを暗号化する"
+      ],
+      "correct_answer": "メッセージの完全性と認証性を確保する",
+      "explanation": "デジタル署名は、秘密鍵で署名することで、メッセージの完全性(改ざんされていないこと)と発信者の認証性(なりすましでないこと)を確保します。"
+    },
+    {
+      "id": 5,
+      "question": "認証局(CA)の役割はどれですか?",
+      "choices": [
+        "公開鍵と所有者の正当性を保証する",
+        "共通鍵を発行する",
+        "暗号化アルゴリズムを開発する",
+        "ハッシュ関数を提供する"
+      ],
+      "correct_answer": "公開鍵と所有者の正当性を保証する",
+      "explanation": "認証局(CA)は公開鍵基盤(PKI)において、公開鍵と所有者の正当性を証明書(デジタル証明書)として発行します。"
+    },
+    {
+      "id": 6,
+      "question": "リスクマネジメントの最初のステップは何ですか?",
+      "choices": [
+        "リスク対応",
+        "リスク特定",
+        "リスク分析",
+        "リスク評価"
+      ],
+      "correct_answer": "リスク特定",
+      "explanation": "リスクマネジメントの最初のステップは、組織に存在するリスクを特定することです。"
+    },
+    {
+      "id": 7,
+      "question": "BCPとは何の略称ですか?",
+      "choices": [
+        "Business Continuity Plan",
+        "Business Certification Process",
+        "Backup Confirmation Procedure",
+        "Basic Cryptography Protocol"
+      ],
+      "correct_answer": "Business Continuity Plan",
+      "explanation": "BCPとは、事業継続計画(Business Continuity Plan)の略称で、不測の事態でも企業活動を継続するための計画をまとめたものです。"
+    },
+    {
+      "id": 8,
+      "question": "情報セキュリティの三大要素(CIA)のうち、「Cは何を表していますか?」",
+      "choices": [
+        "Confidentiality",
+        "Consistency",
+        "Clarity",
+        "Connectivity"
+      ],
+      "correct_answer": "Confidentiality",
+      "explanation": "CIAのCは機密性(Confidentiality)を表し、認められた人だけがアクセスできることを意味します。"
+    },
+    {
+      "id": 9,
+      "question": "情報セキュリティの三大要素(CIA)のうち、「Iは何を表していますか?」",
+      "choices": [
+        "Integrity",
+        "Identification",
+        "Invisibility",
+        "Interoperability"
+      ],
+      "correct_answer": "Integrity",
+      "explanation": "CIAのIは完全性(Integrity)を表し、情報が正確であり、改ざんや破壊が行われていないことを意味します。"
+    },
+    {
+      "id": 10,
+      "question": "ISMSとは何の略称ですか?",
+      "choices": [
+        "Information Security Management System",
+        "Internet Service Management System",
+        "Internal Software Monitoring System",
+        "International Standards Mapping System"
+      ],
+      "correct_answer": "Information Security Management System",
+      "explanation": "ISMSは情報セキュリティマネジメントシステム(Information Security Management System)の略称で、機密性、完全性、可用性の三大要素をバランス良く実現するための仕組みを指します。"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following expresses the time when something happens?",
+      "choices": ["at five o'clock", "on Christmas Day", "on Fridays", "in the winter"],
+      "correct_answer": "at five o'clock",
+      "explanation": "「at five o'clock」は具体的な時刻を表すときに使います。at は特定の時点を指します。"
+    },
+    {
+      "id": 2,
+      "question": "How do we say 'I don't work on Saturday evenings' in English?",
+      "choices": [
+        "I don't work on Saturday evenings.",
+        "I don't work at Saturday evenings.",
+        "I don't work in Saturday evenings.",
+        "I don't work on Saturdays evenings."
+      ],
+      "correct_answer": "I don't work on Saturday evenings.",
+      "explanation": "曜日や曜日の一部（Saturday evenings）には前置詞「on」を使います。"
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is NOT an example of a time expression used in the image?",
+      "choices": ["at midnight", "in the 18th century", "on my birthday", "on 16 May 2009"],
+      "correct_answer": "in the 18th century",
+      "explanation": "「in the 18th century」は画像中の時間表現の例として挙げられていません。"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following expressions is used to talk about the present moment?",
+      "choices": ["at the weekend", "at Christmas", "at present", "in the past"],
+      "correct_answer": "at present",
+      "explanation": "「at present」は「現在、今」という意味で、現在の瞬間を表すときに使います。"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following correctly uses the present simple tense?",
+      "choices": [
+        "The earth goes round the sun.",
+        "I will go away at weekends.",
+        "They teached in a school yesterday.",
+        "She doesn't drive bus now."
+      ],
+      "correct_answer": "The earth goes round the sun.",
+      "explanation": "The present simple tense is used to express general truths or habitual actions. 'The earth goes round the sun' is a general truth statement."
+    },
+    {
+      "id": 2,
+      "question": "How is the negative form of the present simple tense formed?",
+      "choices": [
+        "She don't work",
+        "He doesn't works",
+        "I don't does work",
+        "I/you/we/they don't + verb"
+      ],
+      "correct_answer": "I/you/we/they don't + verb",
+      "explanation": "To form the negative in the present simple tense, we use the auxiliary verb 'don't' + the base form of the main verb."
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is NOT a correct use of the present simple tense?",
+      "choices": [
+        "I promise I won't be late.",
+        "Julie doesn't drink tea very often.",
+        "Robert usually goes away two or three times a year.",
+        "We are going to the dentist next week."
+      ],
+      "correct_answer": "We are going to the dentist next week.",
+      "explanation": "The present simple is not used for scheduled future events. The present continuous is more appropriate for this case."
+    },
+    {
+      "id": 4,
+      "question": "Which verb form is used with 'he/she/it' in the present simple tense?",
+      "choices": [
+        "Work",
+        "Works",
+        "Working",
+        "Worked"
+      ],
+      "correct_answer": "Works",
+      "explanation": "For the third-person singular (he/she/it), we add an 's' to the base form of the verb in the present simple tense."
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is an example of using the present simple to express habitual actions?",
+      "choices": [
+        "I work in a shop.",
+        "We are studying English now.",
+        "She will drive the bus tomorrow.",
+        "They have finished their homework."
+      ],
+      "correct_answer": "I work in a shop.",
+      "explanation": "The present simple tense is used to express habitual or repeated actions. 'I work in a shop' expresses a habitual action."
+    },
+    {
+      "id": 6,
+      "question": "Which modal verb is commonly used to make suggestions in the present simple tense?",
+      "choices": [
+        "Can",
+        "Should",
+        "Must",
+        "Suggest"
+      ],
+      "correct_answer": "Should",
+      "explanation": "The modal verb 'should' is commonly used to make suggestions in the present simple tense, as in 'I suggest that you should study more.'"
+    },
+    {
+      "id": 7,
+      "question": "Which of the following correctly uses the present simple to talk about frequency?",
+      "choices": [
+        "Robert goes away two or three times a year.",
+        "I am getting up at 8 o'clock every morning.",
+        "She will drive the bus tomorrow.",
+        "We studied English yesterday."
+      ],
+      "correct_answer": "Robert goes away two or three times a year.",
+      "explanation": "The present simple tense can be used to express how often an action occurs. 'Robert goes away two or three times a year' expresses the frequency of an action."
+    },
+    {
+      "id": 8,
+      "question": "Which verb form is used with 'I/you/we/they' in the present simple tense?",
+      "choices": [
+        "Drive",
+        "Drives",
+        "Driving",
+        "Driven"
+      ],
+      "correct_answer": "Drive",
+      "explanation": "For the first-person (I), second-person (you), and plural subjects (we/they), we use the base form of the verb in the present simple tense."
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is an example of using the present simple to express general truths?",
+      "choices": [
+        "Nurses look after patients in hospitals.",
+        "I usually go away at weekends.",
+        "The café opens at 7:30 in the morning.",
+        "Rice doesn't grow in cold climates."
+      ],
+      "correct_answer": "Nurses look after patients in hospitals.",
+      "explanation": "The present simple tense is used to express general truths or facts that are always true. 'Nurses look after patients in hospitals' is a general truth statement."
+    },
+    {
+      "id": 10,
+      "question": "Which verb form is used to make questions in the present simple tense?",
+      "choices": [
+        "Do/does + verb",
+        "Verb + do/does",
+        "Verb + ing",
+        "Will + verb"
+      ],
+      "correct_answer": "Do/does + verb",
+      "explanation": "To form questions in the present simple tense, we use the auxiliary verbs 'do/does' followed by the base form of the main verb."
+    }
+  ]
+}
