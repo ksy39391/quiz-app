@@ -106,10 +106,10 @@ export default function App() {
 
   // resultが設定されたら自動的に結果画面に遷移
   useEffect(() => {
-    if (result !== null && screen !== "result") {
+    if (result !== null) {
       setScreen("result");
     }
-  }, [result, screen]);
+  }, [result]);
 
   const startQuiz = (name) => {
     setLoadingQuiz(true);
