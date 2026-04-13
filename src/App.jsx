@@ -189,7 +189,7 @@ export default function App() {
     const waitingFiles = fileList.filter(n => getFileStatus(n, schedule).status === "waiting");
 
     return (
-      <div key="top-screen" className="container">
+      <div className="container">
         <div className="card">
           <div className="select-title">📝 Quiz</div>
           <div className="top-nav">
@@ -251,7 +251,7 @@ export default function App() {
   // ===== 管理画面 =====
   if (screen === "manage") {
     return (
-      <div key="manage-screen" className="container">
+      <div className="container">
         <div className="card">
           <div className="select-title">⚙️ 管理</div>
           <div className="top-nav">
@@ -301,7 +301,7 @@ export default function App() {
   if (screen === "quiz") {
     if (questions.length === 0 || !questions[current]) {
       return (
-        <div key="quiz-loading" className="container">
+        <div className="container">
           <div className="card">
             <div className="center-text">問題を読み込み中...</div>
             <button className="btn" onClick={() => setScreen("top")} style={{ marginTop: 16 }}>
@@ -318,7 +318,7 @@ export default function App() {
     const progress = (current / TOTAL) * 100;
 
     return (
-      <div key="quiz-screen" className="container">
+      <div className="container">
         <div className="card">
           <div className="header">
             <button className="back-btn" onClick={() => setScreen("top")}>← 戻る</button>
@@ -375,7 +375,7 @@ export default function App() {
   if (screen === "result") {
     if (result === null) {
       return (
-        <div key="result-loading" className="container">
+        <div className="container">
           <div className="card">
             <div className="center-text">結果を読み込み中...</div>
           </div>
@@ -390,7 +390,7 @@ export default function App() {
       "❌ 2問以上ミス：フェーズを1つ戻しました";
 
     return (
-      <div key="result-screen" className="container">
+      <div className="container">
         <div className="card">
           <div className="result-emoji">{pct === 100 ? "🎉" : pct >= 60 ? "👍" : "📚"}</div>
           <div className="result-title">結果 — {selectedFile}</div>
