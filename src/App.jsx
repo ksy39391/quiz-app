@@ -104,6 +104,13 @@ export default function App() {
       .catch(() => setLoadingList(false));
   }, []);
 
+  // resultが設定されたら自動的に結果画面に遷移
+  useEffect(() => {
+    if (result !== null && screen !== "result") {
+      setScreen("result");
+    }
+  }, [result, screen]);
+
   const startQuiz = (name) => {
     setLoadingQuiz(true);
     setSelectedFile(name);
@@ -143,15 +150,17 @@ export default function App() {
       const newSchedule = { ...schedule, [selectedFile]: next };
       setSchedule(newSchedule);
       saveSchedule(newSchedule);
-      setResult({
+      
+      // resultを設定するだけで、useEffectが自動的にscreenを"result"に変更する
+      const newResult = {
         score: newScore,
         total: questions.length,
         answers: newAnswers,
         missCount,
         nextDate: next.nextDate,
         completed: next.completed,
-      });
-      setScreen("result");
+      };
+      setResult(newResult);
     } else {
       setScore(newScore);
       setAnswers(newAnswers);
