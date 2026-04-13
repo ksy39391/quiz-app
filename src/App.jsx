@@ -290,6 +290,19 @@ export default function App() {
 
   // ===== クイズ画面 =====
   if (screen === "quiz") {
+    if (questions.length === 0 || !questions[current]) {
+      return (
+        <div className="container">
+          <div className="card">
+            <div className="center-text">問題を読み込み中...</div>
+            <button className="btn" onClick={() => setScreen("top")} style={{ marginTop: 16 }}>
+              トップに戻る
+            </button>
+          </div>
+        </div>
+      );
+    }
+    
     const q = questions[current];
     const TOTAL = questions.length;
     const isCorrect = selected === q.correct_answer;
@@ -350,7 +363,17 @@ export default function App() {
   }
 
   // ===== 結果画面 =====
-  if (screen === "result" && result !== null) {
+  if (screen === "result") {
+    if (result === null) {
+      return (
+        <div className="container">
+          <div className="card">
+            <div className="center-text">結果を読み込み中...</div>
+          </div>
+        </div>
+      );
+    }
+    
     const pct = Math.round((result.score / result.total) * 100);
     const phaseMsg =
       result.missCount === 0 ? "✅ 全問正解！次のフェーズへ" :
