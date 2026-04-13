@@ -2,119 +2,123 @@
   "questions": [
     {
       "id": 1,
-      "question": "DRAMはリフレッシュが不要な半導体メモリである。",
+      "question": "Which of the following expresses the time when something happens?",
       "choices": [
-        "True",
-        "False"
+        "at five o'clock",
+        "on Christmas Day",
+        "on Fridays",
+        "in the winter"
       ],
-      "correct_answer": "False",
-      "explanation": "DRAMはリフレッシュが必要な半導体メモリである。一方、SRAMはリフレッシュが不要な半導体メモリである。"
+      "correct_answer": "at five o'clock",
+      "explanation": "The image shows that 'at five o'clock' is used to express the time of day when something happens."
     },
     {
       "id": 2,
-      "question": "フラッシュメモリにおいて、ページとは消去の単位を指す。",
+      "question": "How do we say 'I don't work on Saturday evenings' in English?",
       "choices": [
-        "True",
-        "False"
+        "I don't work on Saturday evenings.",
+        "I don't work at Saturday evenings.",
+        "I don't work in Saturday evenings.",
+        "I don't work on Saturdays evenings."
       ],
-      "correct_answer": "False",
-      "explanation": "フラッシュメモリにおいて、ページは読み書きの単位であり、ブロックが消去の単位である。"
+      "correct_answer": "I don't work on Saturday evenings.",
+      "explanation": "According to the image, we use 'on' with days or parts of the day to talk about recurring events."
     },
     {
       "id": 3,
-      "question": "次のうち、ROMの種類ではないものはどれか。",
+      "question": "Which of the following is NOT an example of a time expression used in the image?",
       "choices": [
-        "マスクROM",
-        "PROM",
-        "SDRAM",
-        "EEPROM"
+        "at midnight",
+        "in the 18th century",
+        "on my birthday",
+        "on 16 May 2009"
       ],
-      "correct_answer": "SDRAM",
-      "explanation": "SDRAMはDRAMの一種であり、ROMの種類ではない。マスクROM、PROM、EEPROMはいずれもROMの種類である。"
+      "correct_answer": "in the 18th century",
+      "explanation": "The image does not list 'in the 18th century' as an example of a time expression."
     },
     {
       "id": 4,
-      "question": "メモリセルとは何を指すか。",
+      "question": "Which of the following expressions is used to talk about the present moment?",
       "choices": [
-        "0,1の情報を格納する最小単位",
-        "メモリの種類の一つ",
-        "フラッシュメモリの読み書き単位",
-        "電子回路の一種"
+        "at the weekend",
+        "at Christmas",
+        "at present",
+        "in the past"
       ],
-      "correct_answer": "0,1の情報を格納する最小単位",
-      "explanation": "メモリセルとは、0または1の情報を格納する最小単位のことを指す。"
+      "correct_answer": "at present",
+      "explanation": "The image shows that 'at present' is used to refer to the present moment or current time."
     },
     {
       "id": 5,
-      "question": "フリップフロップ回路は何を実現する回路か。",
+      "question": "How do we express the idea of 'a few minutes from now' in English?",
       "choices": [
-        "1ビットの情報を保存",
-        "複数ビットの情報を保存",
-        "演算を行う",
-        "制御を行う"
+        "in a few minutes",
+        "for a few minutes",
+        "at a few minutes",
+        "on a few minutes"
       ],
-      "correct_answer": "1ビットの情報を保存",
-      "explanation": "フリップフロップ回路は1ビットの情報を保存できる順序回路である。"
+      "correct_answer": "in a few minutes",
+      "explanation": "According to the image, we use 'in' to talk about time periods or durations, such as 'in a few minutes'."
     },
     {
       "id": 6,
-      "question": "アノードコモンとはどのような接続方式を指すか。",
+      "question": "Which of the following is NOT an example of a time expression used with 'in' according to the image?",
       "choices": [
-        "正極（アノード）が共通になっている",
-        "負極（カソード）が共通になっている",
-        "入力端子が共通になっている",
-        "出力端子が共通になっている"
+        "in the morning",
+        "in six months",
+        "in a week's time",
+        "in a moment"
       ],
-      "correct_answer": "正極（アノード）が共通になっている",
-      "explanation": "アノードコモンとは、正極（アノード）が共通になっている接続方式のことを指す。"
+      "correct_answer": "in a moment",
+      "explanation": "The image does not list 'in a moment' as an example of a time expression used with 'in'."
     },
     {
       "id": 7,
-      "question": "次のうち、順序回路の説明として正しいものはどれか。",
+      "question": "How do we express the idea of 'It took me four weeks to learn' in English?",
       "choices": [
-        "現在の入力のみで出力が決まる回路",
-        "過去の入力によって出力が決まる回路",
-        "演算を行う回路",
-        "制御を行う回路"
+        "I learned in four weeks.",
+        "I learned for four weeks.",
+        "I learned at four weeks.",
+        "I learned on four weeks."
       ],
-      "correct_answer": "過去の入力によって出力が決まる回路",
-      "explanation": "順序回路とは、現在の入力だけでなく、過去の入力によって出力が決まる回路のことを指す。"
+      "correct_answer": "I learned in four weeks.",
+      "explanation": "The image shows that we use 'in' to say how long it takes to do something, such as 'I learned in four weeks'."
     },
     {
       "id": 8,
-      "question": "EEPROMとは何の略称か。",
+      "question": "Which of the following expressions is used to talk about a past event that happened at a specific time?",
       "choices": [
-        "Electrically Erasable Programmable Read Only Memory",
-        "Electrically Erasable Programmable Random Access Memory",
-        "Enhanced Erasable Programmable Read Only Memory",
-        "Enhanced Erasable Programmable Random Access Memory"
+        "They arrived last March.",
+        "They arrived on Fridays.",
+        "They arrived in October.",
+        "They arrived at five o'clock."
       ],
-      "correct_answer": "Electrically Erasable Programmable Read Only Memory",
-      "explanation": "EEPROMは、Electrically Erasable Programmable Read Only Memoryの略称である。"
+      "correct_answer": "They arrived last March.",
+      "explanation": "The image shows that we do not use 'at/on/in' before 'last/next/this/every' to refer to a specific time in the past."
     },
     {
       "id": 9,
-      "question": "次のうち、DRAMの種類ではないものはどれか。",
+      "question": "How do we express the idea of 'I arrived at the same time as Kate' in English?",
       "choices": [
-        "SDRAM",
-        "DDR SDRAM",
-        "RDRAM",
-        "SRAM"
+        "Kate and I arrived at the same time.",
+        "Kate and I arrived in the same time.",
+        "Kate and I arrived on the same time.",
+        "Kate and I arrived by the same time."
       ],
-      "correct_answer": "SRAM",
-      "explanation": "SDRAM、DDR SDRAM、RDRAMはいずれもDRAMの種類である。一方、SRAMはDRAMではなく、別の半導体メモリの種類である。"
+      "correct_answer": "Kate and I arrived at the same time.",
+      "explanation": "The image shows that we use 'at' in expressions like 'at the same time' to talk about simultaneous events."
     },
     {
       "id": 10,
-      "question": "フラッシュメモリは何の一種か。",
+      "question": "Which of the following expressions is used to talk about recurring events or days?",
       "choices": [
-        "DRAM",
-        "SRAM",
-        "EEPROM",
-        "SDRAM"
+        "on Fridays",
+        "at Fridays",
+        "in Fridays",
+        "by Fridays"
       ],
-      "correct_answer": "EEPROM",
-      "explanation": "フラッシュメモリはEEPROM（Electrically Erasable Programmable Read Only Memory）の一種である。"
+      "correct_answer": "on Fridays",
+      "explanation": "The image shows that we use 'on' with days of the week or specific dates to talk about recurring events or days."
     }
   ]
 }

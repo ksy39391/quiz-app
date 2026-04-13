@@ -188,3 +188,71 @@ body {
 .btn-secondary {
   background: #334155;
 }
+
+/* トップナビ */
+.top-nav { display: flex; gap: 8px; margin-bottom: 20px; }
+.nav-btn {
+  flex: 1; padding: 10px; border-radius: 10px;
+  border: 2px solid #334155; background: #0f172a;
+  color: #94a3b8; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.nav-btn.active { border-color: #38bdf8; color: #38bdf8; background: #0c2233; }
+
+/* ファイルフェーズ表示 */
+.file-phase { font-size: 11px; color: #64748b; margin-left: auto; padding-right: 8px; }
+
+/* 待機中セクション */
+.waiting-section { margin-top: 20px; }
+.waiting-title { color: #64748b; font-size: 12px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+.waiting-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px; border-radius: 10px;
+  background: #0f172a; border: 1px solid #1e293b;
+  margin-bottom: 6px;
+}
+.waiting-days { font-size: 13px; color: #475569; }
+
+/* 空メッセージ */
+.empty-msg {
+  text-align: center; color: #64748b; font-size: 15px;
+  padding: 24px 0; line-height: 1.8;
+}
+
+/* 次回復習 */
+.next-review {
+  text-align: center; color: #7dd3fc; font-size: 14px;
+  background: #0c2233; border-radius: 10px;
+  padding: 10px; margin-bottom: 16px;
+}
+
+/* 管理画面 */
+.manage-list { display: flex; flex-direction: column; gap: 14px; }
+.manage-item {
+  background: #0f172a; border-radius: 12px;
+  padding: 14px; border: 1px solid #1e293b;
+}
+.manage-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.manage-next { font-size: 12px; color: #64748b; margin-top: 8px; }
+
+/* ステータスバッジ */
+.status-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 8px;
+  border-radius: 99px;
+}
+.status-badge.new      { background: #1e3a5f; color: #7dd3fc; }
+.status-badge.due      { background: #1a3a1a; color: #4ade80; }
+.status-badge.waiting  { background: #1e293b; color: #64748b; }
+.status-badge.completed { background: #2d1a4a; color: #a78bfa; }
+
+/* フェーズ選択 */
+.phase-selector { display: flex; flex-wrap: wrap; gap: 5px; }
+.phase-btn {
+  padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600;
+  border: 1px solid #334155; background: #1e293b; color: #64748b; cursor: pointer;
+}
+.phase-btn.phase-done    { background: #0f2a1a; color: #4ade80; border-color: #166534; }
+.phase-btn.phase-current { background: #0c2233; color: #38bdf8; border-color: #0369a1; }
+.phase-reset-btn {
+  padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600;
+  border: 1px solid #7f1d1d; background: #2d0a0a; color: #f87171; cursor: pointer;
+}

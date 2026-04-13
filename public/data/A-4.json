@@ -2,123 +2,123 @@
   "questions": [
     {
       "id": 1,
-      "question": "Which of the following correctly uses the present simple tense?",
+      "question": "Which of the following expresses the time when something happens?",
       "choices": [
-        "The earth goes round the sun.",
-        "I will go away at weekends.",
-        "They teached in a school yesterday.",
-        "She doesn't drive bus now."
+        "at five o'clock",
+        "on Christmas Day",
+        "on Fridays",
+        "in the winter"
       ],
-      "correct_answer": "The earth goes round the sun.",
-      "explanation": "The present simple tense is used to express general truths or habitual actions. 'The earth goes round the sun' is a general truth statement."
+      "correct_answer": "at five o'clock",
+      "explanation": "The image shows that 'at five o'clock' is used to express the time of day when something happens."
     },
     {
       "id": 2,
-      "question": "How is the negative form of the present simple tense formed?",
+      "question": "How do we say 'I don't work on Saturday evenings' in English?",
       "choices": [
-        "She don't work",
-        "He doesn't works",
-        "I don't does work",
-        "I/you/we/they don't + verb"
+        "I don't work on Saturday evenings.",
+        "I don't work at Saturday evenings.",
+        "I don't work in Saturday evenings.",
+        "I don't work on Saturdays evenings."
       ],
-      "correct_answer": "I/you/we/they don't + verb",
-      "explanation": "To form the negative in the present simple tense, we use the auxiliary verb 'don't' + the base form of the main verb."
+      "correct_answer": "I don't work on Saturday evenings.",
+      "explanation": "According to the image, we use 'on' with days or parts of the day to talk about recurring events."
     },
     {
       "id": 3,
-      "question": "Which of the following is NOT a correct use of the present simple tense?",
+      "question": "Which of the following is NOT an example of a time expression used in the image?",
       "choices": [
-        "I promise I won't be late.",
-        "Julie doesn't drink tea very often.",
-        "Robert usually goes away two or three times a year.",
-        "We are going to the dentist next week."
+        "at midnight",
+        "in the 18th century",
+        "on my birthday",
+        "on 16 May 2009"
       ],
-      "correct_answer": "We are going to the dentist next week.",
-      "explanation": "The present simple is not used for scheduled future events. The present continuous is more appropriate for this case."
+      "correct_answer": "in the 18th century",
+      "explanation": "The image does not list 'in the 18th century' as an example of a time expression."
     },
     {
       "id": 4,
-      "question": "Which verb form is used with 'he/she/it' in the present simple tense?",
+      "question": "Which of the following expressions is used to talk about the present moment?",
       "choices": [
-        "Work",
-        "Works",
-        "Working",
-        "Worked"
+        "at the weekend",
+        "at Christmas",
+        "at present",
+        "in the past"
       ],
-      "correct_answer": "Works",
-      "explanation": "For the third-person singular (he/she/it), we add an 's' to the base form of the verb in the present simple tense."
+      "correct_answer": "at present",
+      "explanation": "The image shows that 'at present' is used to refer to the present moment or current time."
     },
     {
       "id": 5,
-      "question": "Which of the following is an example of using the present simple to express habitual actions?",
+      "question": "How do we express the idea of 'a few minutes from now' in English?",
       "choices": [
-        "I work in a shop.",
-        "We are studying English now.",
-        "She will drive the bus tomorrow.",
-        "They have finished their homework."
+        "in a few minutes",
+        "for a few minutes",
+        "at a few minutes",
+        "on a few minutes"
       ],
-      "correct_answer": "I work in a shop.",
-      "explanation": "The present simple tense is used to express habitual or repeated actions. 'I work in a shop' expresses a habitual action."
+      "correct_answer": "in a few minutes",
+      "explanation": "According to the image, we use 'in' to talk about time periods or durations, such as 'in a few minutes'."
     },
     {
       "id": 6,
-      "question": "Which modal verb is commonly used to make suggestions in the present simple tense?",
+      "question": "Which of the following is NOT an example of a time expression used with 'in' according to the image?",
       "choices": [
-        "Can",
-        "Should",
-        "Must",
-        "Suggest"
+        "in the morning",
+        "in six months",
+        "in a week's time",
+        "in a moment"
       ],
-      "correct_answer": "Should",
-      "explanation": "The modal verb 'should' is commonly used to make suggestions in the present simple tense, as in 'I suggest that you should study more.'"
+      "correct_answer": "in a moment",
+      "explanation": "The image does not list 'in a moment' as an example of a time expression used with 'in'."
     },
     {
       "id": 7,
-      "question": "Which of the following correctly uses the present simple to talk about frequency?",
+      "question": "How do we express the idea of 'It took me four weeks to learn' in English?",
       "choices": [
-        "Robert goes away two or three times a year.",
-        "I am getting up at 8 o'clock every morning.",
-        "She will drive the bus tomorrow.",
-        "We studied English yesterday."
+        "I learned in four weeks.",
+        "I learned for four weeks.",
+        "I learned at four weeks.",
+        "I learned on four weeks."
       ],
-      "correct_answer": "Robert goes away two or three times a year.",
-      "explanation": "The present simple tense can be used to express how often an action occurs. 'Robert goes away two or three times a year' expresses the frequency of an action."
+      "correct_answer": "I learned in four weeks.",
+      "explanation": "The image shows that we use 'in' to say how long it takes to do something, such as 'I learned in four weeks'."
     },
     {
       "id": 8,
-      "question": "Which verb form is used with 'I/you/we/they' in the present simple tense?",
+      "question": "Which of the following expressions is used to talk about a past event that happened at a specific time?",
       "choices": [
-        "Drive",
-        "Drives",
-        "Driving",
-        "Driven"
+        "They arrived last March.",
+        "They arrived on Fridays.",
+        "They arrived in October.",
+        "They arrived at five o'clock."
       ],
-      "correct_answer": "Drive",
-      "explanation": "For the first-person (I), second-person (you), and plural subjects (we/they), we use the base form of the verb in the present simple tense."
+      "correct_answer": "They arrived last March.",
+      "explanation": "The image shows that we do not use 'at/on/in' before 'last/next/this/every' to refer to a specific time in the past."
     },
     {
       "id": 9,
-      "question": "Which of the following is an example of using the present simple to express general truths?",
+      "question": "How do we express the idea of 'I arrived at the same time as Kate' in English?",
       "choices": [
-        "Nurses look after patients in hospitals.",
-        "I usually go away at weekends.",
-        "The café opens at 7:30 in the morning.",
-        "Rice doesn't grow in cold climates."
+        "Kate and I arrived at the same time.",
+        "Kate and I arrived in the same time.",
+        "Kate and I arrived on the same time.",
+        "Kate and I arrived by the same time."
       ],
-      "correct_answer": "Nurses look after patients in hospitals.",
-      "explanation": "The present simple tense is used to express general truths or facts that are always true. 'Nurses look after patients in hospitals' is a general truth statement."
+      "correct_answer": "Kate and I arrived at the same time.",
+      "explanation": "The image shows that we use 'at' in expressions like 'at the same time' to talk about simultaneous events."
     },
     {
       "id": 10,
-      "question": "Which verb form is used to make questions in the present simple tense?",
+      "question": "Which of the following expressions is used to talk about recurring events or days?",
       "choices": [
-        "Do/does + verb",
-        "Verb + do/does",
-        "Verb + ing",
-        "Will + verb"
+        "on Fridays",
+        "at Fridays",
+        "in Fridays",
+        "by Fridays"
       ],
-      "correct_answer": "Do/does + verb",
-      "explanation": "To form questions in the present simple tense, we use the auxiliary verbs 'do/does' followed by the base form of the main verb."
+      "correct_answer": "on Fridays",
+      "explanation": "The image shows that we use 'on' with days of the week or specific dates to talk about recurring events or days."
     }
   ]
 }
