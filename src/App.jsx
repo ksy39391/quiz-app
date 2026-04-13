@@ -53,16 +53,28 @@ function getFileStatus(name, schedule) {
 }
 
 // 問題を解いた後にスケジュールを更新
-function advanceSchedule(name, schedule) {
+// missCount=0: 全問正解→次フェーズ / missCount=1: 維持→翌日 / missCount>=2: 1つ戻る→翌日
+function advanceSchedule(name, schedule, missCount) {
   const rec = schedule[name];
   const currentPhase = rec ? rec.phaseIndex : -1;
-  const nextPhase = currentPhase + 1;
-  if (nextPhase >= PHASES.length) {
-    // 全フェーズ完了
-    return { ...schedule, [name]: { ...rec, phaseIndex: PHASES.length - 1, completed: true, nextDate: null } };
+
+  if (missCount === 0) {
+    // 全問正解 → 次のフェーズへ
+    const nextPhase = currentPhase + 1;
+    if (nextPhase >= PHASES.length) {
+      return { ...schedule, [name]: { phaseIndex: PHASES.length - 1, completed: true, nextDate: null } };
+    }
+    const nextDate = addDays(today(), PHASES[nextPhase]);
+    return { ...schedule, [name]: { phaseIndex: nextPhase, nextDate, completed: false } };
+  } else if (missCount === 1) {
+    // 1問ミス → フェーズ維持、翌日復習
+    return { ...schedule, [name]: { phaseIndex: Math.max(currentPhase, 0), nextDate: addDays(today(), 1), completed: false } };
+  } else {
+    // 2問以上ミス → 1つ前のフェーズへ（フェーズ0以下は翌日復習）
+    const prevPhase = Math.max(currentPhase - 1, 0);
+    const nextDate = addDays(today(), currentPhase <= 0 ? 1 : PHASES[prevPhase]);
+    return { ...schedule, [name]: { phaseIndex: prevPhase, nextDate, completed: false } };
   }
-  const nextDate = addDays(today(), PHASES[nextPhase]);
-  return { ...schedule, [name]: { phaseIndex: nextPhase, nextDate, completed: false } };
 }
 
 // ==============================
@@ -113,8 +125,9 @@ export default function App() {
     const newScore = score + (correct ? 1 : 0);
     const newAnswers = [...answers, { question: q.question, selected, correct_answer: q.correct_answer, isCorrect: correct }];
     if (current + 1 >= questions.length) {
-      // スケジュール更新
-      const newSchedule = advanceSchedule(selectedFile, schedule);
+      // ミス数を計算してスケジュール更新
+      const missCount = questions.length - newScore;
+      const newSchedule = advanceSchedule(selectedFile, schedule, missCount);
       setSchedule(newSchedule);
       saveSchedule(newSchedule);
       setFinalScore(newScore);
@@ -327,8 +340,19 @@ export default function App() {
           <div className="result-score">{finalScore} <span className="result-total">/ {TOTAL}</span></div>
           <div className="result-pct">{pct}%</div>
           <div className="result-msg">{pct >= 80 ? "素晴らしい！" : pct >= 50 ? "もう少し！" : "復習しよう"}</div>
+          {(() => {
+            const missCount = TOTAL - finalScore;
+            let phaseMsg = "";
+            if (missCount === 0) phaseMsg = "✅ 全問正解！次のフェーズへ";
+            else if (missCount === 1) phaseMsg = "⚠️ 1問ミス：フェーズ維持";
+            else phaseMsg = "❌ 2問以上ミス：フェーズを1つ戻しました";
+            return <div className="phase-result-msg">{phaseMsg}</div>;
+          })()}
           {s.nextDate && (
-            <div className="next-review">次回復習: {s.nextDate}（{PHASES[s.phaseIndex]}日後）</div>
+            <div className="next-review">次回復習: {s.nextDate}</div>
+          )}
+          {s.completed && (
+            <div className="next-review">🏆 全フェーズ完了！</div>
           )}
           <div className="review-list">
             {finalAnswers.map((a, i) => (
