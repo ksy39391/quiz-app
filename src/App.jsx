@@ -17,7 +17,7 @@ function pickRandom(arr, n) {
 }
 
 function today() {
-  return new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+  return new Date().toISOString().split("T")[0];
 }
 
 function addDays(dateStr, days) {
@@ -32,7 +32,6 @@ function daysDiff(dateStr) {
   return Math.round((d - t) / 86400000);
 }
 
-// LocalStorage操作
 function loadSchedule() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
   catch { return {}; }
@@ -42,49 +41,48 @@ function saveSchedule(s) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
 }
 
-// ファイルの状態を返す
-// { status: "new"|"due"|"waiting", nextDate, phaseIndex, daysLeft }
 function getFileStatus(name, schedule) {
   const rec = schedule[name];
-  if (!rec) return { status: "new", nextDate: null, phaseIndex: -1, daysLeft: null };
+  if (!rec) return { status: "new", nextDate: null, phaseIndex: -1, daysLeft: null, completed: false };
+  if (rec.completed) return { status: "completed", nextDate: null, phaseIndex: rec.phaseIndex, daysLeft: null, completed: true };
   const diff = daysDiff(rec.nextDate);
-  if (diff <= 0) return { status: "due", nextDate: rec.nextDate, phaseIndex: rec.phaseIndex, daysLeft: 0 };
-  return { status: "waiting", nextDate: rec.nextDate, phaseIndex: rec.phaseIndex, daysLeft: diff };
+  if (diff <= 0) return { status: "due", nextDate: rec.nextDate, phaseIndex: rec.phaseIndex, daysLeft: 0, completed: false };
+  return { status: "waiting", nextDate: rec.nextDate, phaseIndex: rec.phaseIndex, daysLeft: diff, completed: false };
 }
 
-// 問題を解いた後にスケジュールを更新
-// missCount=0: 全問正解→次フェーズ / missCount=1: 維持→翌日 / missCount>=2: 1つ戻る→翌日
-function advanceSchedule(name, schedule, missCount) {
+// missCount=0: 全問正解→次フェーズ / =1: 維持→翌日 / >=2: 1つ戻る→翌日
+function calcNextSchedule(name, schedule, missCount) {
   const rec = schedule[name];
   const currentPhase = rec ? rec.phaseIndex : -1;
 
   if (missCount === 0) {
-    // 全問正解 → 次のフェーズへ
     const nextPhase = currentPhase + 1;
     if (nextPhase >= PHASES.length) {
-      return { ...schedule, [name]: { phaseIndex: PHASES.length - 1, completed: true, nextDate: null } };
+      return { phaseIndex: PHASES.length - 1, nextDate: null, completed: true };
     }
-    const nextDate = addDays(today(), PHASES[nextPhase]);
-    return { ...schedule, [name]: { phaseIndex: nextPhase, nextDate, completed: false } };
-  } else if (missCount === 1) {
-    // 1問ミス → フェーズ維持、翌日復習
-    return { ...schedule, [name]: { phaseIndex: Math.max(currentPhase, 0), nextDate: addDays(today(), 1), completed: false } };
-  } else {
-    // 2問以上ミス → 1つ前のフェーズへ（フェーズ0以下は翌日復習）
-    const prevPhase = Math.max(currentPhase - 1, 0);
-    const nextDate = addDays(today(), currentPhase <= 0 ? 1 : PHASES[prevPhase]);
-    return { ...schedule, [name]: { phaseIndex: prevPhase, nextDate, completed: false } };
+    return { phaseIndex: nextPhase, nextDate: addDays(today(), PHASES[nextPhase]), completed: false };
   }
+
+  if (missCount === 1) {
+    return { phaseIndex: Math.max(currentPhase, 0), nextDate: addDays(today(), 1), completed: false };
+  }
+
+  // 2問以上ミス
+  const prevPhase = Math.max(currentPhase - 1, 0);
+  const days = currentPhase <= 0 ? 1 : PHASES[prevPhase];
+  return { phaseIndex: prevPhase, nextDate: addDays(today(), days), completed: false };
 }
 
 // ==============================
 // メインアプリ
 // ==============================
 export default function App() {
-  const [screen, setScreen] = useState("top"); // top | quiz | result | manage
+  const [screen, setScreen] = useState("top");
   const [fileList, setFileList] = useState([]);
   const [loadingList, setLoadingList] = useState(true);
   const [schedule, setSchedule] = useState({});
+
+  // クイズ状態
   const [questions, setQuestions] = useState([]);
   const [loadingQuiz, setLoadingQuiz] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -93,11 +91,10 @@ export default function App() {
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [finalScore, setFinalScore] = useState(0);
-  const [finalAnswers, setFinalAnswers] = useState([]);
-  const [finalMissCount, setFinalMissCount] = useState(0);
-  const [finalNextDate, setFinalNextDate] = useState(null);
-  const [finalCompleted, setFinalCompleted] = useState(false);
+
+  // 結果画面用（確定値）
+  const [result, setResult] = useState(null);
+  // result = { score, answers, missCount, nextDate, completed }
 
   useEffect(() => {
     setSchedule(loadSchedule());
@@ -107,53 +104,80 @@ export default function App() {
       .catch(() => setLoadingList(false));
   }, []);
 
-  const handleSelectFile = (name) => {
+  const startQuiz = (name) => {
     setLoadingQuiz(true);
     setSelectedFile(name);
     fetch(`${BASE}data/${name}.json`)
       .then(r => r.json())
       .then(data => {
         setQuestions(pickRandom(data.questions, QUIZ_COUNT));
-        setCurrent(0); setSelected(null); setShowExplanation(false);
-        setScore(0); setAnswers([]); setFinalScore(0); setFinalAnswers([]);
+        setCurrent(0);
+        setSelected(null);
+        setShowExplanation(false);
+        setScore(0);
+        setAnswers([]);
+        setResult(null);
         setLoadingQuiz(false);
         setScreen("quiz");
       })
       .catch(() => setLoadingQuiz(false));
   };
 
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+  };
+
   const handleNext = () => {
     const q = questions[current];
     const correct = selected === q.correct_answer;
     const newScore = score + (correct ? 1 : 0);
-    const newAnswers = [...answers, { question: q.question, selected, correct_answer: q.correct_answer, isCorrect: correct }];
+    const newAnswers = [
+      ...answers,
+      { question: q.question, selected, correct_answer: q.correct_answer, isCorrect: correct }
+    ];
+
     if (current + 1 >= questions.length) {
-      // ミス数を計算してスケジュール更新
       const missCount = questions.length - newScore;
-      const newSchedule = advanceSchedule(selectedFile, schedule, missCount);
+      const next = calcNextSchedule(selectedFile, schedule, missCount);
+      const newSchedule = { ...schedule, [selectedFile]: next };
       setSchedule(newSchedule);
       saveSchedule(newSchedule);
-      setFinalScore(newScore);
-      setFinalAnswers(newAnswers);
-      setFinalMissCount(missCount);
-      const newRec = newSchedule[selectedFile];
-      setFinalNextDate(newRec?.nextDate || null);
-      setFinalCompleted(newRec?.completed || false);
+      setResult({
+        score: newScore,
+        total: questions.length,
+        answers: newAnswers,
+        missCount,
+        nextDate: next.nextDate,
+        completed: next.completed,
+      });
       setScreen("result");
     } else {
-      setScore(newScore); setAnswers(newAnswers);
-      setCurrent(c => c + 1); setSelected(null); setShowExplanation(false);
+      setScore(newScore);
+      setAnswers(newAnswers);
+      setCurrent(c => c + 1);
+      setSelected(null);
+      setShowExplanation(false);
     }
+  };
+
+  const updatePhase = (name, phaseIndex) => {
+    const newSchedule = { ...schedule };
+    if (phaseIndex < 0) {
+      delete newSchedule[name];
+    } else if (phaseIndex >= PHASES.length) {
+      newSchedule[name] = { phaseIndex: PHASES.length - 1, nextDate: null, completed: true };
+    } else {
+      newSchedule[name] = { phaseIndex, nextDate: addDays(today(), PHASES[phaseIndex]), completed: false };
+    }
+    setSchedule(newSchedule);
+    saveSchedule(newSchedule);
   };
 
   // ===== トップ画面 =====
   if (screen === "top") {
-    const dueFiles = fileList.filter(n => {
-      const s = getFileStatus(n, schedule);
-      return s.status === "new" || s.status === "due";
-    });
+    const dueFiles = fileList.filter(n => ["new", "due"].includes(getFileStatus(n, schedule).status));
     const waitingFiles = fileList.filter(n => getFileStatus(n, schedule).status === "waiting");
-    const completedFiles = fileList.filter(n => schedule[n]?.completed);
 
     return (
       <div className="container">
@@ -163,12 +187,14 @@ export default function App() {
             <button className="nav-btn active">クイズ</button>
             <button className="nav-btn" onClick={() => setScreen("manage")}>⚙️ 管理</button>
           </div>
-
-          {loadingList ? <div className="center-text">読み込み中...</div> : (
+          {loadingList ? (
+            <div className="center-text">読み込み中...</div>
+          ) : (
             <>
               {dueFiles.length === 0 && waitingFiles.length > 0 && (
                 <div className="empty-msg">
-                  今日の復習はありません 🎉<br />
+                  今日の復習はありません 🎉
+                  <br />
                   <span style={{ fontSize: 13, color: "#64748b" }}>
                     次の復習: {Math.min(...waitingFiles.map(n => getFileStatus(n, schedule).daysLeft))}日後
                   </span>
@@ -181,7 +207,7 @@ export default function App() {
                 {dueFiles.map(name => {
                   const s = getFileStatus(name, schedule);
                   return (
-                    <button key={name} className="file-btn" onClick={() => handleSelectFile(name)} disabled={loadingQuiz}>
+                    <button key={name} className="file-btn" onClick={() => startQuiz(name)} disabled={loadingQuiz}>
                       <span className="file-icon">{s.status === "new" ? "🆕" : "🔁"}</span>
                       <span className="file-name">{name}</span>
                       <span className="file-phase">
@@ -215,21 +241,6 @@ export default function App() {
 
   // ===== 管理画面 =====
   if (screen === "manage") {
-    const updatePhase = (name, phaseIndex) => {
-      const newSchedule = { ...schedule };
-      if (phaseIndex < 0) {
-        // リセット
-        delete newSchedule[name];
-      } else if (phaseIndex >= PHASES.length) {
-        newSchedule[name] = { phaseIndex: PHASES.length - 1, nextDate: null, completed: true };
-      } else {
-        const nextDate = addDays(today(), PHASES[phaseIndex]);
-        newSchedule[name] = { phaseIndex, nextDate, completed: false };
-      }
-      setSchedule(newSchedule);
-      saveSchedule(newSchedule);
-    };
-
     return (
       <div className="container">
         <div className="card">
@@ -247,25 +258,27 @@ export default function App() {
                   <div className="manage-header">
                     <span className="file-name">{name}</span>
                     <span className={`status-badge ${s.status}`}>
-                      {s.status === "new" ? "未学習" : s.completed ? "完了" : s.status === "due" ? "復習期日" : `${s.daysLeft}日後`}
+                      {s.status === "new" ? "未学習"
+                        : s.completed ? "完了"
+                        : s.status === "due" ? "復習期日"
+                        : `${s.daysLeft}日後`}
                     </span>
                   </div>
                   <div className="phase-selector">
-                    <button
-                      className={`phase-reset-btn`}
-                      onClick={() => updatePhase(name, -1)}
-                    >リセット</button>
+                    <button className="phase-reset-btn" onClick={() => updatePhase(name, -1)}>リセット</button>
                     {PHASES.map((days, i) => (
                       <button
                         key={i}
-                        className={`phase-btn ${rec && rec.phaseIndex === i ? "phase-current" : ""} ${rec && rec.phaseIndex > i ? "phase-done" : ""}`}
+                        className={
+                          "phase-btn" +
+                          (rec && rec.phaseIndex === i ? " phase-current" : "") +
+                          (rec && rec.phaseIndex > i ? " phase-done" : "")
+                        }
                         onClick={() => updatePhase(name, i)}
                       >{days}日</button>
                     ))}
                   </div>
-                  {s.nextDate && (
-                    <div className="manage-next">次回: {s.nextDate}</div>
-                  )}
+                  {s.nextDate && <div className="manage-next">次回: {s.nextDate}</div>}
                 </div>
               );
             })}
@@ -303,8 +316,8 @@ export default function App() {
                 else if (choice === selected) cls += " wrong";
               }
               return (
-                <button key={i} className={cls} onClick={() => selected === null && setSelected(choice)}>
-                  <span className="choice-letter">{["A","B","C","D"][i]}</span>
+                <button key={i} className={cls} onClick={() => handleSelect(choice)}>
+                  <span className="choice-letter">{["A", "B", "C", "D"][i]}</span>
                   <span className="choice-text">{choice}</span>
                 </button>
               );
@@ -316,7 +329,9 @@ export default function App() {
                 {isCorrect ? "✓ 正解！" : "✗ 不正解"}
               </div>
               {!isCorrect && (
-                <div className="feedback-correct-answer">正解: <span style={{ color: "#4ade80" }}>{q.correct_answer}</span></div>
+                <div className="feedback-correct-answer">
+                  正解: <span style={{ color: "#4ade80" }}>{q.correct_answer}</span>
+                </div>
               )}
               <button className="explanation-toggle" onClick={() => setShowExplanation(v => !v)}>
                 {showExplanation ? "解説を閉じる ▲" : "解説を見る ▼"}
@@ -335,27 +350,26 @@ export default function App() {
   }
 
   // ===== 結果画面 =====
-  if (screen === "result") {
-    const TOTAL = questions.length;
-    const pct = Math.round((finalScore / TOTAL) * 100);
-    const phaseMsg = finalMissCount === 0
-      ? "✅ 全問正解！次のフェーズへ"
-      : finalMissCount === 1
-      ? "⚠️ 1問ミス：フェーズ維持"
-      : "❌ 2問以上ミス：フェーズを1つ戻しました";
+  if (screen === "result" && result !== null) {
+    const pct = Math.round((result.score / result.total) * 100);
+    const phaseMsg =
+      result.missCount === 0 ? "✅ 全問正解！次のフェーズへ" :
+      result.missCount === 1 ? "⚠️ 1問ミス：フェーズ維持" :
+      "❌ 2問以上ミス：フェーズを1つ戻しました";
+
     return (
       <div className="container">
         <div className="card">
           <div className="result-emoji">{pct === 100 ? "🎉" : pct >= 60 ? "👍" : "📚"}</div>
           <div className="result-title">結果 — {selectedFile}</div>
-          <div className="result-score">{finalScore} <span className="result-total">/ {TOTAL}</span></div>
+          <div className="result-score">{result.score} <span className="result-total">/ {result.total}</span></div>
           <div className="result-pct">{pct}%</div>
           <div className="result-msg">{pct === 100 ? "素晴らしい！" : pct >= 60 ? "もう少し！" : "復習しよう"}</div>
           <div className="phase-result-msg">{phaseMsg}</div>
-          {finalNextDate ? <div className="next-review">次回復習: {finalNextDate}</div> : null}
-          {finalCompleted ? <div className="next-review">🏆 全フェーズ完了！</div> : null}
+          {result.nextDate && <div className="next-review">次回復習: {result.nextDate}</div>}
+          {result.completed && <div className="next-review">🏆 全フェーズ完了！</div>}
           <div className="review-list">
-            {finalAnswers.map((a, i) => (
+            {result.answers.map((a, i) => (
               <div key={i} className="review-item" style={{ borderLeftColor: a.isCorrect ? "#4ade80" : "#f87171" }}>
                 <div className="review-q">Q{i + 1}. {a.question}</div>
                 <div style={{ color: a.isCorrect ? "#4ade80" : "#f87171", fontSize: 13 }}>
@@ -365,7 +379,7 @@ export default function App() {
               </div>
             ))}
           </div>
-          <button className="btn" onClick={() => handleSelectFile(selectedFile)} style={{ marginBottom: 10 }}>
+          <button className="btn" onClick={() => startQuiz(selectedFile)} style={{ marginBottom: 10 }}>
             もう一度（別の5問）
           </button>
           <button className="btn btn-secondary" onClick={() => setScreen("top")}>
@@ -375,4 +389,6 @@ export default function App() {
       </div>
     );
   }
+
+  return null;
 }
