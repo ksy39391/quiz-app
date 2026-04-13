@@ -338,10 +338,11 @@ export default function App() {
   if (screen === "result") {
     const TOTAL = questions.length;
     const pct = Math.round((finalScore / TOTAL) * 100);
-    let phaseMsg = "";
-    if (finalMissCount === 0) phaseMsg = "✅ 全問正解！次のフェーズへ";
-    else if (finalMissCount === 1) phaseMsg = "⚠️ 1問ミス：フェーズ維持";
-    else phaseMsg = "❌ 2問以上ミス：フェーズを1つ戻しました";
+    const phaseMsg = finalMissCount === 0
+      ? "✅ 全問正解！次のフェーズへ"
+      : finalMissCount === 1
+      ? "⚠️ 1問ミス：フェーズ維持"
+      : "❌ 2問以上ミス：フェーズを1つ戻しました";
     return (
       <div className="container">
         <div className="card">
@@ -351,12 +352,8 @@ export default function App() {
           <div className="result-pct">{pct}%</div>
           <div className="result-msg">{pct === 100 ? "素晴らしい！" : pct >= 60 ? "もう少し！" : "復習しよう"}</div>
           <div className="phase-result-msg">{phaseMsg}</div>
-          {finalNextDate && (
-            <div className="next-review">次回復習: {finalNextDate}</div>
-          )}
-          {finalCompleted && (
-            <div className="next-review">🏆 全フェーズ完了！</div>
-          )}
+          {finalNextDate ? <div className="next-review">次回復習: {finalNextDate}</div> : null}
+          {finalCompleted ? <div className="next-review">🏆 全フェーズ完了！</div> : null}
           <div className="review-list">
             {finalAnswers.map((a, i) => (
               <div key={i} className="review-item" style={{ borderLeftColor: a.isCorrect ? "#4ade80" : "#f87171" }}>
