@@ -95,6 +95,9 @@ export default function App() {
   const [answers, setAnswers] = useState([]);
   const [finalScore, setFinalScore] = useState(0);
   const [finalAnswers, setFinalAnswers] = useState([]);
+  const [finalMissCount, setFinalMissCount] = useState(0);
+  const [finalNextDate, setFinalNextDate] = useState(null);
+  const [finalCompleted, setFinalCompleted] = useState(false);
 
   useEffect(() => {
     setSchedule(loadSchedule());
@@ -132,6 +135,10 @@ export default function App() {
       saveSchedule(newSchedule);
       setFinalScore(newScore);
       setFinalAnswers(newAnswers);
+      setFinalMissCount(missCount);
+      const newRec = newSchedule[selectedFile];
+      setFinalNextDate(newRec?.nextDate || null);
+      setFinalCompleted(newRec?.completed || false);
       setScreen("result");
     } else {
       setScore(newScore); setAnswers(newAnswers);
@@ -331,27 +338,23 @@ export default function App() {
   if (screen === "result") {
     const TOTAL = questions.length;
     const pct = Math.round((finalScore / TOTAL) * 100);
-    const s = getFileStatus(selectedFile, schedule);
+    let phaseMsg = "";
+    if (finalMissCount === 0) phaseMsg = "✅ 全問正解！次のフェーズへ";
+    else if (finalMissCount === 1) phaseMsg = "⚠️ 1問ミス：フェーズ維持";
+    else phaseMsg = "❌ 2問以上ミス：フェーズを1つ戻しました";
     return (
       <div className="container">
         <div className="card">
-          <div className="result-emoji">{pct >= 80 ? "🎉" : pct >= 50 ? "👍" : "📚"}</div>
+          <div className="result-emoji">{pct === 100 ? "🎉" : pct >= 60 ? "👍" : "📚"}</div>
           <div className="result-title">結果 — {selectedFile}</div>
           <div className="result-score">{finalScore} <span className="result-total">/ {TOTAL}</span></div>
           <div className="result-pct">{pct}%</div>
-          <div className="result-msg">{pct >= 80 ? "素晴らしい！" : pct >= 50 ? "もう少し！" : "復習しよう"}</div>
-          {(() => {
-            const missCount = TOTAL - finalScore;
-            let phaseMsg = "";
-            if (missCount === 0) phaseMsg = "✅ 全問正解！次のフェーズへ";
-            else if (missCount === 1) phaseMsg = "⚠️ 1問ミス：フェーズ維持";
-            else phaseMsg = "❌ 2問以上ミス：フェーズを1つ戻しました";
-            return <div className="phase-result-msg">{phaseMsg}</div>;
-          })()}
-          {s.nextDate && (
-            <div className="next-review">次回復習: {s.nextDate}</div>
+          <div className="result-msg">{pct === 100 ? "素晴らしい！" : pct >= 60 ? "もう少し！" : "復習しよう"}</div>
+          <div className="phase-result-msg">{phaseMsg}</div>
+          {finalNextDate && (
+            <div className="next-review">次回復習: {finalNextDate}</div>
           )}
-          {s.completed && (
+          {finalCompleted && (
             <div className="next-review">🏆 全フェーズ完了！</div>
           )}
           <div className="review-list">
